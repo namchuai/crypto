@@ -1,23 +1,19 @@
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-import { Link } from 'expo-router';
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import useCryptoData from './hooks/useCryptoData';
+import { Link } from 'expo-router';
+import { ThemedText } from '@/components/ThemedText';
+import { ThemedView } from '@/components/ThemedView';
+import useCurrencies from '@/hooks/useCurrencies';
 
 const HomeScreen: React.FC = () => {
-  const {
-    clearCryptoData,
-    insertCryptoData,
-    insertFiatData,
-    insertCryptoAndFiatData,
-  } = useCryptoData();
+  const { clearData, insertCryptoData, insertFiatData, insertBothData } =
+    useCurrencies();
   return (
     <ThemedView style={styles.container}>
       <ThemedText type="defaultSemiBold" style={styles.title}>
         Control
       </ThemedText>
-      <TouchableOpacity style={styles.button} onPress={clearCryptoData}>
+      <TouchableOpacity style={styles.button} onPress={clearData}>
         <ThemedText style={styles.buttonText}>Clear database</ThemedText>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={insertCryptoData}>
@@ -26,7 +22,7 @@ const HomeScreen: React.FC = () => {
       <TouchableOpacity style={styles.button} onPress={insertFiatData}>
         <ThemedText style={styles.buttonText}>Insert Fiat data</ThemedText>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={insertCryptoAndFiatData}>
+      <TouchableOpacity style={styles.button} onPress={insertBothData}>
         <ThemedText style={styles.buttonText}>Insert Both</ThemedText>
       </TouchableOpacity>
 

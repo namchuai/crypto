@@ -1,6 +1,6 @@
-import { IconSymbol } from '@/components/ui/IconSymbol';
 import React from 'react';
 import { Pressable, StyleSheet, TextInput, View } from 'react-native';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 type Props = {
   value: string;

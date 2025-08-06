@@ -1,4 +1,3 @@
-import { IconSymbol } from '@/components/ui/IconSymbol';
 import React, { useEffect, useRef } from 'react';
 import {
   Animated,
@@ -9,6 +8,7 @@ import {
   View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 
 type Props = {
   value: string;

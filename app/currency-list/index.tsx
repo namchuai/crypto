@@ -1,16 +1,23 @@
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import { useNavigation } from '@react-navigation/native';
 import React, { useCallback, useLayoutEffect, useState } from 'react';
 import { Pressable } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { useDebounce } from 'use-debounce';
+import { IconSymbol } from '@/components/ui/IconSymbol';
 import CurrencyList from './components/CurrencyList';
 import SearchInput from './components/SearchInput';
+
+const DEBOUNCE_SEARCH_MS = 300;
 
 const CurrencyListScreen: React.FC = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [debouncedSearchQuery] = useDebounce(searchQuery, 300);
+  const [debouncedSearchQuery] = useDebounce(searchQuery, DEBOUNCE_SEARCH_MS);
   const navigation = useNavigation();
+
+  const handleCloseSearch = useCallback(() => {
+    setShowSearch(false);
+    setSearchQuery('');
+  }, []);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -18,10 +25,7 @@ const CurrencyListScreen: React.FC = () => {
       headerShown: true,
       headerLeft: showSearch
         ? () => (
-            <Pressable
-              onPress={() => setShowSearch(false)}
-              testID="search-close"
-            >
+            <Pressable onPress={handleCloseSearch} testID="search-close">
               <IconSymbol name="chevron.backward" size={20} color="#007AFF" />
             </Pressable>
           )
@@ -43,20 +47,9 @@ const CurrencyListScreen: React.FC = () => {
             </Pressable>
           ),
     });
-  }, [navigation, showSearch, searchQuery]);
+  }, [navigation, showSearch, searchQuery, handleCloseSearch]);
 
-  const onCloseSearch = useCallback(() => {
-    setShowSearch(false);
-    setSearchQuery('');
-  }, []);
-
-  return (
-    <CurrencyList
-      showSearch={showSearch}
-      onCloseSearch={onCloseSearch}
-      searchQuery={debouncedSearchQuery}
-    />
-  );
+  return <CurrencyList searchQuery={debouncedSearchQuery} />;
 };
 
 export default CurrencyListScreen;

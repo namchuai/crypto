@@ -1,5 +1,3 @@
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import { useColorScheme } from '@/hooks/useColorScheme';
 import {
   DarkTheme,
   DefaultTheme,
@@ -8,8 +6,8 @@ import {
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { Pressable } from 'react-native';
 import 'react-native-reanimated';
+import { useColorScheme } from '@/hooks/useColorScheme';
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -27,20 +25,8 @@ export default function RootLayout() {
       <Stack>
         <Stack.Screen name="index" options={{ title: 'Currency tracker' }} />
         <Stack.Screen
-          name="currency-list"
-          options={{
-            title: 'Currencies',
-            headerRight: () => (
-              <Pressable
-                onPress={() => {
-                  // TODO: Toggle search mode
-                }}
-                style={{ marginRight: 15 }}
-              >
-                <IconSymbol name="magnifyingglass" size={20} color="#007AFF" />
-              </Pressable>
-            ),
-          }}
+          name="currency-list/index"
+          options={{ title: 'Currencies' }}
         />
       </Stack>
       <StatusBar style="auto" />
