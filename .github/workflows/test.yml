@@ -56,9 +56,6 @@ jobs:
     - name: Install dependencies
       run: npm ci
     
-    - name: Create development JS bundle
-      run: npx expo export --dev --platform ios --clear
-      
     - name: Run Expo prebuild
       run: npx expo prebuild --platform ios --npm
     
@@ -96,8 +93,8 @@ jobs:
         
     - name: Build Detox for iOS
       run: |
-        export NODE_ENV=development
-        npx detox build --configuration ios.sim.debug
+        export NODE_ENV=production
+        npx detox build --configuration ios.sim.release
     
     - name: Run Detox tests on iOS
-      run: npx detox test --configuration ios.sim.debug --cleanup --headless --loglevel verbose
+      run: npx detox test --configuration ios.sim.release --cleanup --headless --loglevel verbose
