@@ -1,6 +1,8 @@
-# Welcome to your Expo app 👋
+# Crypto Currency Tracker 💰
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+![Tests](https://github.com/jamesnguyen/crypto/actions/workflows/test.yml/badge.svg)
+
+A React Native/Expo cryptocurrency tracking application with real-time data management and comprehensive testing.
 
 ## Get started
 
