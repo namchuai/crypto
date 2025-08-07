@@ -6,10 +6,7 @@ A high-performance React Native cryptocurrency application built with TypeScript
 
 ## 📱 Demo
 
-<video width="300" controls>
-  <source src="recordings/demo-compressed.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+https://github.com/user-attachments/assets/f84c635d-832a-4061-b088-aec7324160ae
 
 ## 🚀 Key Features
 
