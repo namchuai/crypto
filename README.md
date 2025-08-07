@@ -4,6 +4,13 @@
 
 A high-performance React Native cryptocurrency application built with TypeScript, focusing on optimal performance and comprehensive testing.
 
+## 📱 Demo
+
+<video width="300" controls>
+  <source src="recordings/demo-compressed.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 ## 🚀 Key Features
 
 - **High-Performance Currency Lists**: Browse and search through cryptocurrency and fiat currency data
@@ -73,7 +80,7 @@ A high-performance React Native cryptocurrency application built with TypeScript
 
 ### Unit Testing (Jest)
 
-- **Hook Testing**: Custom hook functionality verification  
+- **Hook Testing**: Custom hook functionality verification
 - **Utility Function Testing**: Core business logic validation
 
 ### Automated CI/CD Pipeline
@@ -88,7 +95,7 @@ A high-performance React Native cryptocurrency application built with TypeScript
 ### Claude Code Integration
 
 - **CLAUDE.md Memory System**: Project-specific development guidelines and patterns
-- **Performance-First Approach**: AI-assisted optimization recommendations  
+- **Performance-First Approach**: AI-assisted optimization recommendations
 - **TypeScript Excellence**: Intelligent code generation following strict typing standards
 - **Testing Strategy**: AI-guided test case generation and coverage improvement
 
@@ -133,7 +140,7 @@ npm test
 # Run E2E tests (iOS)
 npm run test:e2e:ios
 
-# Run E2E tests (Android) 
+# Run E2E tests (Android)
 npm run test:e2e:android
 
 # Build and test (iOS)

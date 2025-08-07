@@ -79,6 +79,16 @@ export const insertBothData = async (): Promise<void> => {
 };
 
 /**
+ * Navigate to home screen by restarting the app
+ */
+export const navigateToHome = async (): Promise<void> => {
+  // Simply restart the app to ensure we're on the home screen
+  // This is more reliable than trying to navigate back
+  await device.launchApp({ newInstance: true });
+  await wait(WAIT_TIMES.MEDIUM);
+};
+
+/**
  * Navigate to currency list
  */
 export const navigateToCurrencyList = async (): Promise<void> => {
@@ -93,4 +103,45 @@ export const scrollCurrencyList = async (times: number = 1): Promise<void> => {
     await element(by.id(TEST_IDS.CURRENCY_LIST)).swipe('up', 'fast', 0.8);
     await wait(WAIT_TIMES.SHORT);
   }
+};
+
+/**
+ * Open search by tapping search icon
+ */
+export const openSearch = async (): Promise<void> => {
+  await element(by.id(TEST_IDS.SEARCH_ICON)).tap();
+  await wait(WAIT_TIMES.SHORT);
+};
+
+/**
+ * Close search by tapping close button
+ */
+export const closeSearch = async (): Promise<void> => {
+  await element(by.id(TEST_IDS.SEARCH_CLOSE)).tap();
+  await wait(WAIT_TIMES.SHORT);
+};
+
+/**
+ * Type in search input
+ */
+export const typeInSearch = async (query: string): Promise<void> => {
+  await element(by.id(TEST_IDS.SEARCH_INPUT)).typeText(query);
+  await wait(WAIT_TIMES.SHORT);
+};
+
+/**
+ * Clear search input
+ */
+export const clearSearch = async (): Promise<void> => {
+  await element(by.id(TEST_IDS.SEARCH_CLEAR)).tap();
+  await wait(WAIT_TIMES.SHORT);
+};
+
+/**
+ * Perform a complete search operation
+ */
+export const performSearch = async (query: string): Promise<void> => {
+  await openSearch();
+  await typeInSearch(query);
+  await wait(WAIT_TIMES.MEDIUM); // Wait for debounce
 };
