@@ -1,5 +1,6 @@
 import React from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { LegendList } from '@legendapp/list';
 import {
   CommonError,
   CommonLoading,
@@ -26,7 +27,6 @@ const CurrencyList: React.FC<Props> = ({ searchQuery }) => {
       <CommonError
         message={error}
         onRetry={() => {
-          // Could add retry logic here if needed
           console.log('Retry loading currencies');
         }}
       />
@@ -34,9 +34,10 @@ const CurrencyList: React.FC<Props> = ({ searchQuery }) => {
   }
 
   return (
-    <FlatList
+    <LegendList
       style={styles.container}
       testID="currency-list"
+      recycleItems={true}
       data={currencies}
       renderItem={({ item }) => (
         <CurrencyRow key={item.id} currencyInfo={item} />
